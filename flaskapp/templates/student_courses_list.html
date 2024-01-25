@@ -1,0 +1,21 @@
+{% extends "creatorlayout.html" %}
+{% block title %} Lesson List{% endblock %}
+
+{%block content%}
+
+<div class="p-16">
+    <div class="flex justify-between text-gray-500">
+        
+    <h1 class="font-semibold">MY COURSES</h1>
+    <a href="{{url_for('creator.add_course')}}" class="btn btn-outline btn-accent"> + ENROLL NEW COURSE</a>
+    </div>
+
+    <div class="my-16">
+    <a href="{{url_for('creator.lessons_list')}}" class="btn btn-outline">
+        COURSE 1
+    </a>    
+    </div>
+
+</div>
+  
+{%endblock%}

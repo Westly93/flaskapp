@@ -1,0 +1,46 @@
+{% extends "admin/base.html" %} {% block section %}
+  <div
+    class=" mt-12 md:mt-2 bg-gray-100 pb-24 md:pb-5"
+  >
+  <div class="pt-3 w-full">
+    <div
+      class="rounded-tl-3xl p-4 shadow text-2xl flex justify-between w-full"
+    >
+      <h1 class="font-bold pl-2">Provider Types </h1>
+      <ul class="menu menu-horizontal bg-base-200">
+        <li><a  href="{{ url_for('auth.create_provider_type')}}">Create</a></li>
+        <li><a href="{{ url_for('auth.provider_types')}}">Provider Types</a></li>
+      </ul>
+      
+    </div>
+    
+  </div>
+
+    <div class="p-12 mx-auto">
+      
+      <form method="post" class="w-full">
+        <fieldset class="">
+          <legend class="border-bottom text-center mb-3">Edit Provider Type</legend> 
+          {{ form.hidden_tag() }}
+          <div class="form-control">
+            {{ form.name.label(class= 'label') }}
+            <div class="input-group input-group-sm">
+              {% if form.name.errors %} {{ form.name(class= 'form-control
+              is-invalid')}} {% for error in form.name.errors %}
+              <div class="invalid-feedback">
+                <span>{{ error }}</span>
+              </div>
+              {% endfor %} {% else %} {{ form.name(class= 'input input-bordered
+              w-full') }} {% endif %}
+            </div>
+          </div>
+          
+          <div class="form-group mt-4">
+            {{ form.submit(class= 'btn btn-outline btn-accent w-full') }}
+          </div>
+        </form>
+    </div>
+    </div>
+  </div>
+{% endblock section %}
+

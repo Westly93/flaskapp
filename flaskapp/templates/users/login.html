@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {% block title %} {{ title }} {% endblock title %}
+<!--block content -->
+{% block content %}
+<div class="max-w-md mx-auto mt-12 text-gray-500 mb-6">
+  <form method="post" action="">
+    <fieldset class="container">
+      <legend class="text-2xl text-center font-semi-bold">Login</legend>
+      {{ form.hidden_tag() }}
+      <div class="mb-6">
+        {{ form.email.label(class= 'block mb-2 text-sm font-medium text-gray-900
+        dark:text-white') }}
+        <div class="input-group input-group-sm">
+          {% if form.email.errors %} {{ form.email(class= 'bg-red-50 border
+          border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg
+          focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full
+          p-2.5 dark:text-red-500 dark:placeholder-red-500
+          dark:border-red-500')}} {% for error in form.email.errors %}
+          <div class="invalid-feedback">
+            <span>{{ error }}</span>
+          </div>
+          {% endfor %} {% else %} {{ form.email(class= 'bg-gray-50 border
+          border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+          focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700
+          dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+          dark:focus:ring-blue-500 dark:focus:border-blue-500') }} {% endif %}
+        </div>
+      </div>
+      <div class="mb-6">
+        {{ form.password.label(class= 'block mb-2 text-sm font-medium
+        text-gray-900 dark:text-white') }}
+        <div class="w-full">
+          {% if form.password.errors %} {{ form.password(class= 'bg-red-50
+          border border-red-500 text-red-900 placeholder-red-700 text-sm
+          rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500
+          block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500
+          dark:border-red-500')}} {% for error in form.password.errors %}
+          <div class="invalid-feedback">
+            <span>{{ error }}</span>
+          </div>
+          {% endfor %} {% else %} {{ form.password(class= 'bg-gray-50 border
+          border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+          focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700
+          dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+          dark:focus:ring-blue-500 dark:focus:border-blue-500') }} {% endif %}
+        </div>
+      </div>
+      <div class="my-3 flex space-x-2">
+        {{ form.remember(class= 'checkbox mt-2') }}
+        <!---->
+        {{ form.remember.label(class= 'label') }}
+      </div>
+      <div class="form-group">
+        {{ form.submit(class= 'btn btn-outline btn-accent w-full') }}
+        <small class="text-muted ml-2">
+          <a href="{{ url_for('auth.reset_request')}}">Forgot password</a>
+        </small>
+      </div>
+    </fieldset>
+  </form>
+  <div class="border-top">
+    <p class="text-muted">
+      Need an account?
+      <a class="mr-4" href="{{url_for('auth.register')}}">Sign Up</a>
+    </p>
+  </div>
+</div>
+{% endblock content %}

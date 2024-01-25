@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MSU Courses | {% block title %}{% endblock title %}</title>
+    <meta name="description" content="Simple landind page" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <!--Daisy ui Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!--Replace with your tailwind.css once created-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700"
+      rel="stylesheet"
+    />
+    <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
+    {% block styles %} {% endblock styles %}
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body
+    class="leading-normal tracking-normal text-white gradient"
+    style="font-family: 'Source Sans Pro', sans-serif"
+  >
+    <!--Navigation bar-->
+
+    <!--/Navigation bar-->
+    <div class="mt-6">
+      {% include "navbar.html" %} {% with messages=
+      get_flashed_messages(with_categories= True) %} {% if messages %} {% for
+      category, message in messages %} {% if category == "success" %}
+      <div
+        x-data="{open: true}"
+        x-init="setTimeout(()=>{open=false}, 2000)"
+        x-show="open"
+        class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 max-w-lg mx-auto mt-12"
+        role="alert"
+      >
+        {{ message }}
+      </div>
+      {% elif category == "error" %}
+      <div
+        x-data="{open: true}"
+        x-init="setTimeout(()=>{open=false}, 2000)"
+        x-show="open"
+        class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 max-w-lg mx-auto mt-12"
+        role="alert"
+      >
+        {{ message }}
+      </div>
+      {% endif %} {% endfor %} {% endif %} {% endwith %} {% block content %} {%
+      endblock content %}
+      <!--footer-->
+
+      <!--/footer-->
+    </div>
+    {% block scripts %} {% endblock scripts %}
+  </body>
+</html>

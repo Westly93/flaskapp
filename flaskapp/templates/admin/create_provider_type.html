@@ -1,0 +1,52 @@
+{% extends "admin/base.html" %} {% block section %}
+  <div
+    class=" mt-12 md:mt-2 bg-gray-100 pb-24 md:pb-5"
+  >
+  <div class="pt-3 w-full">
+    <div
+      class="rounded-tl-3xl p-4 shadow text-2xl flex justify-between w-full"
+    >
+      <h1 class="font-bold pl-2">Provider Types </h1>
+      <ul class="menu menu-horizontal bg-base-200">
+        <li><a  href="{{ url_for('auth.create_provider_type')}}">Create</a></li>
+        <li><a href="{{ url_for('auth.provider_types')}}">Provider Types</a></li>
+      </ul>
+    </div>
+    
+  </div>
+
+    <div class="p-12 mx-auto">
+      
+      <form method="post" class="w-full">
+        <fieldset class="">
+          <legend class="mb-6 text-2xl font-bold">Create Provider Type</legend> 
+          {{ form.hidden_tag() }}
+          <div class="form-control">
+            {{ form.name.label(class= 'block mb-2 text-sm font-medium text-gray-900
+            dark:text-white') }}
+            <div class="input-group input-group-sm">
+              {% if form.name.errors %} {{ form.name(class= 'bg-red-50
+              border border-red-500 text-red-900 placeholder-red-700 text-sm
+              rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500
+              block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500
+              dark:border-red-500')}} {% for error in form.name.errors %}
+              <div class="invalid-feedback">
+                <span>{{ error }}</span>
+              </div>
+              {% endfor %} {% else %} {{ form.name(class= 'bg-gray-50 border
+              border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+              focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700
+              dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+              dark:focus:ring-blue-500 dark:focus:border-blue-500') }} {% endif %}
+            </div>
+          </div>
+          
+          <div class="form-group mt-4">
+            {{ form.submit(class= 'btn btn-outline btn-accent w-full') }}
+          </div>
+        </form>
+    </div>
+    </div>
+  </div>
+{% endblock section %}
+

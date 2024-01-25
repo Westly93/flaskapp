@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Create Topic</title>
+</head>
+
+<body>
+  <div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Create Topic</h1>
+    <form action="{{url_for('creator.create_topic')}}" method="POST" enctype="multipart/form-data">
+      <div class="mb-4">
+        <label for="title" class="block text-gray-700 mb-2">Title</label>
+        <input type="text" id="title" name="title" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500" required>
+      </div>
+      
+      <div class="mb-4">
+        <label for="file" class="block text-gray-700 mb-2">Select File</label>
+        <input type="file" id="file" name="content" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500" required>
+      </div>
+
+      <div>
+        <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600">Upload</button>
+      </div>
+     
+    </form>
+  </div>
+</body>
+
+</html>

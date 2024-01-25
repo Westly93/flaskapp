@@ -1,0 +1,129 @@
+{% extends 'base.html' %} {% block title %} {{ title }} {% endblock title %}
+
+<!---->
+{% block content %}
+<div class="max-w-md mx-auto mt-12 text-gray-500 mb-6">
+  <form method="post" action="">
+    <fieldset class="container">
+      <legend class="border-bottom text-center mb-3">Join today</legend>
+      {{ form.hidden_tag() }}
+      <div class="form-control">
+        {{ form.first_name.label(class= 'block mb-2 text-sm font-medium
+        text-gray-900 dark:text-white') }}
+        <div class="">
+          {% if form.first_name.errors %} {{ form.first_name(class= 'bg-red-50
+          border border-red-500 text-red-900 placeholder-red-700 text-sm
+          rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500
+          block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500
+          dark:border-red-500') }} {% for error in form.first_name.errors %}
+          <div class="invalid-feedback">
+            <span>{{ error }}</span>
+          </div>
+          {% endfor %} {% else %} {{ form.first_name(class= 'bg-gray-50 border
+          border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+          focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700
+          dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+          dark:focus:ring-blue-500 dark:focus:border-blue-500') }}
+          <!---->
+          {% endif %}
+        </div>
+      </div>
+      <div class="form-control">
+        {{ form.first_name.label(class= 'block mb-2 text-sm font-medium
+        text-gray-900 dark:text-white') }}
+        <div class="">
+          {% if form.last_name.errors %}
+          <!---->
+          {{ form.last_name(class= 'bg-red-50 border border-red-500 text-red-900
+          placeholder-red-700 text-sm rounded-lg focus:ring-red-500
+          dark:bg-gray-700 focus:border-red-500 block w-full p-2.5
+          dark:text-red-500 dark:placeholder-red-500 dark:border-red-500') }}
+          <!---->
+          {% for error in form.last_name.errors %}
+          <div class="invalid-feedback">
+            <span>{{ error }}</span>
+          </div>
+          {% endfor %} {% else %} {{ form.last_name(class= 'bg-gray-50 border
+          border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+          focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700
+          dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+          dark:focus:ring-blue-500 dark:focus:border-blue-500') }}
+          <!---->
+          {% endif %}
+        </div>
+      </div>
+      <div class="form-control">
+        {{ form.email.label(class= 'block mb-2 text-sm font-medium text-gray-900
+        dark:text-white') }}
+        <div class="input-group input-group-sm">
+          {% if form.email.errors %} {{ form.email(class= 'bg-red-50 border
+          border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg
+          focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full
+          p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500
+          ') }} {% for error in form.username.errors %}
+          <div class="invalid-feedback">
+            <span>{{ error }}</span>
+          </div>
+          {% endfor %} {% else %} {{ form.email(class= 'bg-gray-50 border
+          border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+          focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700
+          dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+          dark:focus:ring-blue-500 dark:focus:border-blue-500') }}
+          <!---->
+          {% endif %}
+        </div>
+      </div>
+      <div class="form-control">
+        {{ form.password.label(class= 'block mb-2 text-sm font-medium
+        text-gray-900 dark:text-white') }}
+        <div class="input-group input-group-sm">
+          {% if form.password.errors %} {{ form.password(class= 'bg-red-50
+          border border-red-500 text-red-900 placeholder-red-700 text-sm
+          rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500
+          block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500
+          dark:border-red-500 ') }} {% for error in form.password.errors %}
+          <div class="invalid-feedback">
+            <span>{{ error }}</span>
+          </div>
+          {% endfor %} {% else %} {{ form.password(class= 'bg-gray-50 border
+          border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+          focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700
+          dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+          dark:focus:ring-blue-500 dark:focus:border-blue-500') }}
+          <!---->
+          {% endif %}
+        </div>
+      </div>
+      <div class="mb-3 form-control">
+        {{ form.confirm_password.label(class= 'block mb-2 text-sm font-medium
+        text-gray-900 dark:text-white') }}
+        <div class="input-group input-group-sm">
+          {% if form.confirm_password.errors %} {{ form.confirm_password(class=
+          'bg-red-50 border border-red-500 text-red-900 placeholder-red-700
+          text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700
+          focus:border-red-500 block w-full p-2.5 dark:text-red-500
+          dark:placeholder-red-500 dark:border-red-500') }} {% for error in
+          form.confirm_password.errors %}
+          <div class="invalid-feedback">
+            <span>{{ error }}</span>
+          </div>
+          {% endfor %} {% else %}
+          <!---->
+          {{ form.confirm_password(class= 'bg-gray-50 border border-gray-300
+          text-gray-900 text-sm rounded-lg focus:ring-blue-500
+          focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700
+          dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+          dark:focus:ring-blue-500 dark:focus:border-blue-500') }} {% endif %}
+        </div>
+      </div>
+      <div class="mb-3 form-group">
+        {{ form.submit(class= 'btn btn-outline btn-accent w-full') }}
+      </div>
+    </fieldset>
+  </form>
+  <div class="border-top">
+    <small class="text-muted">Already have an Account? </small>
+    <a class="ml-4" href="{{url_for('auth.login')}}">Login</a>
+  </div>
+</div>
+{% endblock content %}

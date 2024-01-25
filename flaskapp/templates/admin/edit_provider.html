@@ -1,0 +1,61 @@
+{% extends "admin/base.html" %} {% block section %}
+<section>
+  <div
+    id="main"
+    class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5"
+  >
+    <div class="bg-gray-800 pt-3 w-full">
+      <div
+        class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white"
+      >
+        <h1 class="font-bold pl-2">Providers</h1>
+      </div>
+    </div>
+
+    <div class="w-full p-10">
+      
+      <form method="post" action="" class="max-w-[1024px]">
+        <fieldset class="container">
+          <legend class="mb-6 text-2xl font-bold">Edit Provider</legend>
+          {{ form.hidden_tag() }}
+          <div class="form-control">
+            {{ form.name.label(class= 'label') }}
+            <div class="input-group input-group-sm">
+              {% if form.name.errors %} {{ form.name(class= 'form-control
+              is-invalid')}} {% for error in form.name.errors %}
+              <div class="invalid-feedback">
+                <span>{{ error }}</span>
+              </div>
+              {% endfor %} {% else %} {{ form.name(class= 'input input-bordered
+              w-full') }} {% endif %}
+            </div>
+          </div>
+          <div class="my-3">
+            <select name="provider" class="select select-bordered w-full">
+                {% for value, label in form.provider.choices %}
+                <option value="{{ value }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+            </div>
+            <div class="my-3">
+              <select name="provider_type" class="select select-bordered w-full">
+                  <option value="" disabled selected>Select Provider Type</option>
+                  {% for value, label in form.provider_type.choices %}
+                  <option value="{{ value }}">{{ label }}</option>
+                  {% endfor %}
+              </select>
+              </div>
+          <div class="form-group mt-4">
+            {{ form.submit(class= 'btn btn-outline btn-accent w-full') }}
+          </div>
+        </form>
+      
+      
+      
+    </div>
+      
+    </div>
+  </div>
+</section>
+{% endblock section %}
+
