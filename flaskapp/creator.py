@@ -75,14 +75,14 @@ def create_lesson():
 def create_topic():
     lesson = Lesson.query.all()
     if request.method == 'POST':
-        content = request.files.get('content')
+        # content = request.files.get('content')
         
-        # file_path = 'path/to/save/' + file.filename  # Update the path to your desired location
-        # file.save(file_path)
+        # # file_path = 'path/to/save/' + file.filename  # Update the path to your desired location
+        # # file.save(file_path)
 
-        topic = Topic(content=content)
-        db.session.add(topic)
-        db.session.commit()
+        # topic = Topic(content=content)
+        # db.session.add(topic)
+        # db.session.commit()
 
         return redirect(url_for('creator.creator_courses_list'))
         
